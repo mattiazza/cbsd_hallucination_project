@@ -6,6 +6,10 @@ import numpy as np
 
 
 def data_extraction(data_path: Path) -> dict:
+    """
+    Extract file '.json' to a dictionary from the its path
+    """
+
     json_files = glob.glob(os.path.join(data_path, "*.json"))
 
     for json_file in json_files:
@@ -37,26 +41,14 @@ def data_extraction(data_path: Path) -> dict:
 
                     my_data[key][k].append(v)
 
-
     return my_data
-
-def boring_data_extraction(data_path:Path) -> json:
-    json_files = glob.glob(os.path.join(data_path, "*.json"))
-
-    for json_file in json_files:
-        # print(f"json_file # {json_files.index(json_file)}\n")
-
-        # Load the JSON content
-        with open(json_file, "r") as f:
-            data = json.load(f)
-        
-        print(f"This is the {data} data\n")
-        
-        input("Enter to continue")
 
 
 
 def from_num_to_col(arr: np.ndarray) -> str:
+    """
+    Transform our input array in a list where each number correspond to a colour 
+    """
     num_to_col = {
         0: "X",  # Black
         1: "B",  # Blue
