@@ -49,15 +49,15 @@ def from_num_to_col(arr: np.ndarray) -> str:
     Transform our input array in a list where each number correspond to a colour
     """
     num_to_col = {
-        0: "X",  # Black
-        1: "B",  # Blue
-        2: "R",  # Red
+        0: "X",  # Black 
+        1: "B",  # Blue 
+        2: "R",  # Red 
         3: "V",  # Green
-        4: "Y",  # Yellow
-        5: "G",  # Grey
-        6: "P",  # Pink
-        7: "O",  # Orrange
-        8: "C",  # Cyan
+        4: "Y",  # Yellow 
+        5: "G",  # Grey 
+        6: "P",  # Pink 
+        7: "O",  # Orange 
+        8: "C",  # Cyan 
         9: "M",  # Brown
     }
 
