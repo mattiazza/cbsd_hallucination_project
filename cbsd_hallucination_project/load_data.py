@@ -1,8 +1,8 @@
-import json
-from pathlib import Path
-import glob
-import os
 import numpy as np
+import json
+import os
+import glob
+from pathlib import Path
 
 
 def data_extraction(data_path: Path) -> dict:
@@ -44,10 +44,9 @@ def data_extraction(data_path: Path) -> dict:
     return my_data
 
 
-
 def from_num_to_col(arr: np.ndarray) -> str:
     """
-    Transform our input array in a list where each number correspond to a colour 
+    Transform our input array in a list where each number correspond to a colour
     """
     num_to_col = {
         0: "X",  # Black
@@ -71,3 +70,20 @@ def from_num_to_col(arr: np.ndarray) -> str:
         n_row += 1
 
     return "".join(col_array)
+
+
+def number_to_colour(my_dict: dict) -> dict:
+    for key, value in my_dict.items():  # key: ['train', 'test']
+        for k, val in value.items():  # k: ['input', 'output']
+            temp = []
+
+            for v in val:  # We are taking one array at a time
+                array_colored = from_num_to_col(
+                    v
+                )  # Transform the array from number to colour (letter)
+                temp.append(array_colored)
+
+                
+            my_dict[key][k] = temp
+
+    return my_dict
